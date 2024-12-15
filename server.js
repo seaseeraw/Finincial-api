@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -8,6 +9,7 @@ conMongoDb();
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 // Api end points
 import userRouter from "./routers/userRouter.js";

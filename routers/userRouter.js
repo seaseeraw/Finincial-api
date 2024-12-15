@@ -24,10 +24,14 @@ console.log(req.body.password);
        })
        ;
     } catch (error) {
+        let msg = error.message;
+        if(msg.includes("E11000 dupliate key collection")){
+            msg="there is another user";
+        }
         res.json({
             status:"error",
-            message: error.message,
-           }) 
+            message: msg,
+           });
     }
 })
 // userlogin
